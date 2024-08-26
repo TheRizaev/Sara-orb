@@ -48,6 +48,11 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true; // Добавляем плавность при управлении
 controls.dampingFactor = 0.05;
 
+controls.enableZoom = false;   // Отключить масштабирование камеры
+controls.enablePan = false;    // Отключить панорамирование камеры
+
+renderer.domElement.addEventListener('wheel', (event) => event.preventDefault(), { passive: false });
+
 // Инициализируем загрузчик и миксер анимации
 const loader = new GLTFLoader();
 let mixer;
